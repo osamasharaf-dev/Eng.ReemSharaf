@@ -50,6 +50,10 @@
     {
       "source": "/favicon.ico",
       "destination": "/assets/img/favicon-32.png"
+    },
+    {
+      "source": "/google53a476d4c3e5ce02.html",
+      "destination": "/google53a476d4c3e5ce02.txt"
     }
   ]
 }
