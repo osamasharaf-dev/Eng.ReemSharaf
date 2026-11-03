@@ -31,7 +31,7 @@ const js = scripts.map((f) => '// ── ' + f + '\n' + read('src/scripts/' + f)
 write('assets/js/app.js', "(() => {\n'use strict';\n" + js + '\n})();\n');
 
 // pages
-for (const p of PAGES) write(p.slug ? `${p.slug}.html` : 'index.html', renderPage(p));
+for (const p of PAGES) write(p.slug ? `${p.slug}/index.html` : 'index.html', renderPage(p));
 write('404.html', render404());
 
 // sitemap.xml (with image + hreflang annotations)
