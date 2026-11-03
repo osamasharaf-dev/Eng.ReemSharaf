@@ -7,12 +7,16 @@
 .hero-stats{margin-bottom:auto}
 .hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(20px,4vw,64px);align-items:center}
 .hero-eyebrow{display:flex;align-items:center;gap:12px;font:600 12px/1.5 var(--fm);letter-spacing:.2em;text-transform:uppercase;color:var(--wine);margin-bottom:22px;animation:fadeUp .9s .1s var(--ease) both}
-.hero-name{font:900 clamp(54px,9vw,150px)/.9 var(--fd);letter-spacing:-.035em;margin-bottom:26px}
+.hero-text{container-type:inline-size}
+/* sized from its own column (cqi) so SHARAF always fits on one line, at any screen width */
+.hero-name{font:900 clamp(46px,7vw,124px)/.9 var(--fd);font-size:clamp(46px,17cqi,150px);white-space:nowrap;letter-spacing:-.035em;margin-bottom:26px}
 .hero-name .line{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
 .hero-name .line--wine{color:var(--wine)}
 .ch{display:inline-block;animation:chUp 1s var(--ease) both;animation-delay:calc(var(--i) * 45ms + 150ms)}
 @keyframes chUp{from{transform:translateY(105%)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}}
+.hero-ar{font:400 clamp(14px,1.15vw,16.5px)/1.6 'Cairo',var(--fb);color:var(--muted);text-align:left;margin:-8px 0 16px;animation:fadeUp .9s .45s var(--ease) both}
+.hero-ar strong{font-weight:700;color:var(--wine)}
 .hero-roles{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-weight:600;font-size:clamp(16px,1.6vw,21px);margin-bottom:14px;animation:fadeUp .9s .55s var(--ease) both}
 .hero-roles i{font-style:normal;color:var(--wine);opacity:.6}
 .hero-typed{font:400 14px/1.4 var(--fm);color:var(--muted);margin-bottom:34px;min-height:1.4em;animation:fadeUp .9s .65s var(--ease) both}
@@ -56,5 +60,4 @@
 }
 @media (max-width:420px){
   .chip{font-size:11px;padding:7px 11px;border-radius:11px}
-  .hero-name{font-size:clamp(46px,15vw,64px)}
 }

@@ -1,5 +1,5 @@
 // 00 · Hero — only on the one-page home. Transition in: doors part from the centre; letters rise out of a mask.
-import { PERSON, SITE, STRENGTHS } from '../content.mjs';
+import { PERSON, SITE, STRENGTHS, AR } from '../content.mjs';
 import { esc, chars, portrait } from '../lib.mjs';
 import { icon } from '../icons.mjs';
 
@@ -15,6 +15,7 @@ export default () => `
         <span class="line" aria-hidden="true">${chars('REEM')}</span>
         <span class="line line--wine" aria-hidden="true">${chars('SHARAF', 4)}</span>
       </h1>
+      <p class="hero-ar" lang="ar" dir="rtl"><strong>المهندسة ${esc(AR.name)}</strong> · ${esc(AR.summary.split('،')[0])}</p>
       <p class="hero-roles">${PERSON.roles.map((r) => `<span>${esc(r)}</span>`).join('<i aria-hidden="true">/</i>')}</p>
       <p class="hero-typed"><span class="prompt" aria-hidden="true">&gt;_</span> <span class="typed" data-words='${esc(JSON.stringify(TYPED))}'>${esc(TYPED[0])}</span><span class="caret" aria-hidden="true"></span></p>
       <div class="cta-row">

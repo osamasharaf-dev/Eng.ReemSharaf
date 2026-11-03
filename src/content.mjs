@@ -239,3 +239,6 @@ export const AR = {
   recognition: 'شهادة شكر وتقدير على التعاون المميز في تطوير العمل الأكاديمي — كلية الهندسة، جامعة القلمون الخاصة · أيلول 2021',
   languages: ['العربية — اللغة الأم', 'الإنجليزية — مستوى عمل احترافي']
 };
+
+// Arabic FAQ entry (visible on the site and in the FAQPage JSON-LD), built from the Arabic CV translation above.
+FAQ.splice(1, 0, { q: 'من هي المهندسة ريم شرف؟', a: `المهندسة ${AR.name} ${AR.summary} تعمل محاضِرة جامعية في ${AR.experience[0].org} منذ أيلول 2019، وتقيم في ${AR.location}.` });

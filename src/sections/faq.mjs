@@ -2,6 +2,9 @@
 import { FAQ } from '../content.mjs';
 import { esc, pad, heading } from '../lib.mjs';
 
+// inside Arabic text, isolate Latin terms (C#, C++, LLMs…) so the bidi algorithm doesn't flip them
+const ltr = (html) => html.replace(/[A-Za-z](?:[A-Za-z0-9#+\-]|\.(?=[A-Za-z0-9]))*/g, '<bdi>$&</bdi>');
+
 export default (p, { h }) => `
 <section id="faq" class="sec sec--faq" data-tone="light" data-enter="zoom" aria-labelledby="t-faq">
   <div class="wrap faq">
@@ -13,7 +16,7 @@ export default (p, { h }) => `
     <div class="faq-list">
       ${FAQ.map((f, i) => {
         const ar = /[؀-ۿ]/.test(f.q);
-        return `<details class="qa" data-r="rise" style="--d:${i * 60}"${i === 0 ? ' open' : ''}${ar ? ' lang="ar" dir="rtl"' : ''}><summary><span class="qa-num">${pad(i + 1)}</span><h3 class="qa-q">${esc(f.q)}</h3><span class="qa-icon" aria-hidden="true"></span></summary><div class="qa-a"><p>${esc(f.a)}</p></div></details>`;
+        return `<details class="qa" data-r="rise" style="--d:${i * 60}"${i === 0 ? ' open' : ''}${ar ? ' lang="ar" dir="rtl"' : ''}><summary><span class="qa-num">${pad(i + 1)}</span><h3 class="qa-q">${esc(f.q)}</h3><span class="qa-icon" aria-hidden="true"></span></summary><div class="qa-a"><p>${ar ? ltr(esc(f.a)) : esc(f.a)}</p></div></details>`;
       }).join('')}
     </div>
   </div>

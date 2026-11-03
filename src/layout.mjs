@@ -14,7 +14,7 @@ const footer = () => `<footer class="foot">
   <div class="wrap foot-in">
     <a class="brand" href="/" aria-label="Reem Sharaf — home">${logoSVG('logo', 'Reem Sharaf')}</a>
     <nav aria-label="Pages"><ul class="foot-links">${PAGES.map((x) => `<li><a href="${pagePath(x)}">${esc(x.label)}</a></li>`).join('')}</ul></nav>
-    <p class="foot-meta"><span>© ${new Date().getFullYear()} Reem Sharaf · ${esc(PERSON.headline)}</span><a href="/llms.txt">llms.txt</a></p>
+    <p class="foot-meta"><span>© ${new Date().getFullYear()} Reem Sharaf · <span lang="ar" dir="rtl">المهندسة ريم شرف</span> · ${esc(PERSON.headline)}</span><a href="/llms.txt">llms.txt</a></p>
   </div>
 </footer>`;
 
