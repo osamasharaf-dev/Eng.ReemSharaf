@@ -30,6 +30,7 @@
 - بيانات منظمة كاملة (JSON-LD): Person و ProfilePage و FAQPage و BreadcrumbList و Thesis و ItemList.
 - ملفات `llms.txt` و `llms-full.txt` لمحركات الذكاء الاصطناعي، و `robots.txt` يسمح لـ GPTBot و ClaudeBot و PerplexityBot و Google-Extended وغيرها.
 - صورة مشاركة للرابط (Open Graph 1200×630) وأيقونة للتبويب (favicon) و manifest.
+- **IndexNow:** كل نشر على Vercel يبلّغ Bing ومحركات IndexNow فوراً بكل الصفحات، فيسرّع ظهورها في Bing و ChatGPT و Copilot. للإرسال يدوياً: `npm run indexnow`.
 - الاسم العربي «ريم شرف» موجود في طبقة SEO فقط (meta و JSON-LD و llms)، والموقع الظاهر إنجليزي.
 
 ### التشغيل محلياً
@@ -106,6 +107,7 @@ src/
   scripts/40-stage.js    intro + in-place transitions
   layout.mjs · seo.mjs · icons.mjs · lib.mjs · templates.mjs
 build.mjs                → dist/ (pages, sitemap, robots, llms, manifest, bundled CSS/JS)
+indexnow.mjs             pings IndexNow (auto on production builds, or `npm run indexnow`)
 ```
 
 **Add a section:** add an entry to `PAGES` in `content.mjs`, a module in `src/sections/`, register it in `sections/index.mjs`, add `src/styles/sections/<key>.css`, and pick a transition with `data-enter` (`doors`, `drop`, `iris`, `corner`, `page`, `slats`, `push`, `shutter`, `zoom`, `bloom`).

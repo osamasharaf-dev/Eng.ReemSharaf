@@ -7,3 +7,4 @@
 - After deploy: add Google Search Console verification token to `SITE.googleSiteVerification` in `src/content.mjs`, rebuild, and submit `/sitemap.xml`.
 - `dist/` is generated — don't edit it by hand.
 - Structure: one module per section in `src/sections/`, styles in `src/styles/` (+ `sections/<key>.css`), scripts in `src/scripts/` (bundled in filename order). The home page is an in-place stage (`40-stage.js`); each section picks its transition with `data-enter`.
+- IndexNow: key in `SITE.indexNowKey` (served at `/<key>.txt`); production builds on Vercel ping IndexNow automatically; `npm run indexnow` submits by hand.

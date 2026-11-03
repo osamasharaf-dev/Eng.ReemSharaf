@@ -3,6 +3,7 @@ import { mkdirSync, writeFileSync, readFileSync, readdirSync, cpSync, rmSync, ex
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderPage, render404, PAGES, pageUrl } from './src/templates.mjs';
+import { submitIndexNow } from './indexnow.mjs';
 import { SITE, PERSON, SUMMARY, COMPETENCIES, EXPERIENCE, PROJECTS, SKILLS, EDUCATION, CERTIFICATIONS, RECOGNITION, LETTERS, LANGUAGES, FAQ, AR } from './src/content.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
@@ -154,4 +155,10 @@ write('manifest.webmanifest', JSON.stringify({
   ]
 }, null, 2));
 
+// IndexNow key file (proves we own the host when pinging IndexNow)
+if (SITE.indexNowKey) write(`${SITE.indexNowKey}.txt`, SITE.indexNowKey);
+
 console.log(`\nBuilt ${PAGES.length + 1} pages → dist/`);
+
+// production deploys on Vercel: ask Bing & co. to recrawl right away
+if (process.env.VERCEL_ENV === 'production') await submitIndexNow();

@@ -15,6 +15,8 @@ export const SITE = {
   googleSiteVerification: '',
   // Paste the token from Bing Webmaster Tools here (optional), then rebuild.
   bingSiteVerification: '',
+  // IndexNow key (Bing, Yandex, Seznam…). Served at /<key>.txt; production builds ping IndexNow with every page.
+  indexNowKey: '6fc505163fda5611750760880b63a81f',
   image: '/assets/img/reem-sharaf-software-engineer-ai-researcher.webp',
   ogImage: '/assets/img/og-reem-sharaf.jpg',
   cv: '/assets/docs/Reem_Sharaf_CV.pdf'
