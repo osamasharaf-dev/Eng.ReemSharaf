@@ -1,0 +1,25 @@
+/* ─── 09 contact — wine; giant type, contact rows slide on hover ─── */
+.sec--contact{min-height:100svh;display:flex;background:radial-gradient(70% 70% at 100% 100%,var(--wine-3),transparent 60%),radial-gradient(60% 60% at 0% 0%,var(--wine-2),transparent 60%),var(--wine)}
+.sec--contact>.wrap{margin-block:auto}
+.contact-title{display:grid;font:900 clamp(56px,12vw,200px)/.86 var(--fd);letter-spacing:-.045em;text-transform:uppercase;margin-bottom:28px}
+.contact-title .line--out{color:transparent;-webkit-text-stroke:2px var(--rose)}
+.contact-lead{font-size:clamp(17px,1.5vw,21px);max-width:52ch;color:#F4ECEEd9;margin-bottom:clamp(36px,6vh,56px)}
+.crows{display:grid;margin-bottom:40px}
+.crow{display:grid;grid-template-columns:52px 120px 1fr auto;align-items:center;gap:16px;padding:16px 0;transition:transform .45s var(--ease)}
+.crow+.crow{border-top:1px solid #ffffff1f}
+.crow-ico{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#ffffff14;color:var(--rose);font-size:20px;transition:background .3s,color .3s}
+.crow-label{font:600 11px/1 var(--fm);letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-2)}
+.crow-value{font:700 clamp(17px,2.1vw,30px)/1.2 var(--fd);letter-spacing:-.01em;text-decoration:none;overflow-wrap:anywhere}
+.crow-go{font-size:22px;color:var(--rose);transition:transform .4s var(--ease)}
+.crow .round{color:var(--on-dark)}
+.crow .round:hover{background:var(--rose);color:var(--wine-3);border-color:var(--rose)}
+.crow:hover{transform:translateX(10px)}
+.crow:hover .crow-ico{background:var(--rose);color:var(--wine-3)}
+.crow:hover .crow-go{transform:translate(4px,-4px)}
+@media (max-width:640px){
+  .crow{grid-template-columns:46px 1fr auto;gap:4px 14px}
+  .crow-ico{grid-row:span 2}
+  .crow-label{grid-column:2}
+  .crow-value{grid-column:2;font-size:17px}
+  .crow>:last-child:not(.crow-value){grid-column:3;grid-row:1/span 2}
+}

@@ -1,0 +1,59 @@
+/* ─── stage: the one-page home never scrolls as a page — sections swap in place ───
+   Each section is a full-screen layer with its own (inner) scroll for long content.
+   Gated by .js so the page still reads top-to-bottom without JavaScript. */
+.js body[data-page=home]{height:100svh;overflow:hidden;background:var(--night)}
+.js [data-page=home] main{position:fixed;inset:0;overflow:hidden;background:var(--night)}
+.js [data-page=home] main>.sec{position:absolute;inset:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;backface-visibility:hidden}
+.js [data-page=home] main>.sec:not(.is-active){display:none}
+.js [data-page=home] main>.sec.is-active{z-index:1}
+.js [data-page=home] main>.sec.is-entering{z-index:2}
+.js [data-page=home] main>.sec--hero,.js [data-page=home] main>.sec--contact{min-height:0}
+.js [data-page=home] .scroll-cue{display:grid}
+.js [data-page=home] .sec--contact{flex-direction:column;align-items:stretch}
+.js [data-page=home] .sec--contact>.wrap{margin-block:auto 0}
+.js [data-page=home] .sec--contact .foot{width:100%;margin-top:clamp(40px,8vh,80px);padding-block:28px 0;background:transparent;color:#F4ECEEb3;--logo-gap:var(--wine)}
+.js [data-page=home] .sec--contact .foot-meta{border-color:#ffffff26}
+
+/* bottom-right counter + arrows */
+.hud{position:fixed;right:var(--gx);bottom:18px;z-index:90;display:flex;align-items:center;gap:14px;padding:6px 6px 6px 16px;border-radius:999px;background:var(--tb);color:var(--tb-ink);box-shadow:0 12px 30px -18px #000;pointer-events:none;transition:background .3s,color .3s}
+.hud-count{font:600 12px/1 var(--fm);letter-spacing:.14em}
+.hud-count b{font:900 26px/1 var(--fd);letter-spacing:-.02em;margin-right:4px}
+.hud-nav{display:flex;gap:8px;pointer-events:auto}
+.hud .round{background:transparent;transition:background .3s,color .3s,transform .3s var(--ease),opacity .3s}
+.hud .round:hover{background:var(--tb-ink);color:var(--tb)}
+.hud .round:disabled{opacity:.3;pointer-events:none}
+body.menu-open .hud{opacity:0}
+body:not([data-page=home]) .hud{display:none}
+
+/* slats overlay used by one of the transitions */
+.wipe{position:fixed;inset:0;z-index:95;display:flex;pointer-events:none}
+.wipe i{flex:1;margin-right:-1px;background:var(--wine);transform:scaleY(0);transform-origin:top}
+.wipe i:nth-child(even){background:var(--wine-3)}
+
+/* intro — logo draws itself, counter runs, panels part */
+.preloader{position:fixed;inset:0;z-index:200;display:none}
+.js .preloader.is-on{display:block}
+.pre-panel{position:absolute;left:0;right:0;height:50.5%;background:var(--wine)}
+.pre-a{top:0}.pre-b{bottom:0}
+.pre-inner{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;color:var(--on-dark)}
+.pre-logo{width:clamp(150px,22vw,260px)}
+.pre-mark{width:100%;height:auto;display:block;overflow:visible}
+.pre-mark path{fill:transparent;stroke:#F7F7F7;stroke-width:1.4;stroke-dasharray:1;stroke-dashoffset:1}
+.preloader.is-on .pre-mark path{animation:draw 1.3s var(--ease-io) forwards,fillR .6s 1.05s forwards}
+.preloader.is-on .pre-mark .logo-s{animation:draw 1.3s .15s var(--ease-io) forwards,fillS .6s 1.15s forwards}
+.preloader.is-on .pre-mark .logo-clip path{animation:draw 1.3s .3s var(--ease-io) forwards,fillR2 .6s 1.25s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fillR{to{fill:#F7F7F7;stroke-width:0}}
+@keyframes fillS{to{fill:var(--rose);stroke:var(--wine);stroke-width:14}}
+@keyframes fillR2{to{fill:#F7F7F7;stroke:var(--wine);stroke-width:14}}
+.pre-bar{width:min(320px,70vw);height:3px;background:#F7F7F733;border-radius:3px;overflow:hidden}
+.pre-bar span{display:block;height:100%;width:100%;background:var(--paper);transform-origin:left;transform:scaleX(0)}
+.pre-meta{display:flex;gap:14px;font:400 12px/1 var(--fm);letter-spacing:1.5px;text-transform:uppercase;opacity:.85}
+.pre-count{font-weight:600}
+.pre-msg{min-width:26ch}
+
+@media (max-width:760px){
+  .hud{bottom:14px}
+  .hud-count b{font-size:20px}
+  .js [data-page=home] .scroll-cue{display:none}
+}

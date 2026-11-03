@@ -1,0 +1,31 @@
+/* ─── 01 summary — light; the statement lights up word by word (--p set on scroll) ─── */
+.sec--about{background:var(--paper)}
+.statement{font:700 clamp(24px,3.6vw,54px)/1.18 var(--fd);letter-spacing:-.02em;max-width:1150px;margin-bottom:clamp(56px,9vh,110px)}
+.anim .statement .w{opacity:calc(.13 + .87 * clamp(0, var(--p, 0) * (var(--n) + 4) - var(--i), 1))}
+.about-grid{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:clamp(32px,6vw,96px);align-items:start}
+.about-side{position:sticky;top:calc(var(--top) + 24px);display:grid;gap:36px}
+.about-photo{position:relative;aspect-ratio:4/5;border-radius:50% 50% 24px 24px;overflow:hidden;background:linear-gradient(160deg,var(--rose),var(--wine))}
+.about-img{width:100%;height:100%;object-fit:cover;object-position:top}
+.about-years{position:absolute;right:12px;bottom:12px;display:grid;place-items:center;width:84px;height:84px;border-radius:50%;background:var(--ink);color:var(--paper);font:900 28px/1 var(--fd)}
+.about-years small{font:600 9px/1 var(--fm);letter-spacing:.16em;text-transform:uppercase;margin-top:-14px}
+.langs{display:grid;gap:16px}
+.lang p{display:flex;justify-content:space-between;gap:10px;font-size:14px;margin-bottom:8px}
+.lang span{color:var(--muted)}
+.meter{display:block;height:4px;border-radius:4px;background:var(--mid);overflow:hidden}
+.meter::after{content:"";display:block;height:100%;width:var(--w);background:var(--wine);border-radius:inherit;transform-origin:0 50%;transition:transform 1.4s .3s var(--ease)}
+.anim .langs:not(.in) .meter::after{transform:scaleX(0)}
+.about-body{font-size:clamp(17px,1.4vw,20px);line-height:1.7;max-width:62ch;margin-bottom:48px}
+.about-main .mini{margin-bottom:22px}
+.strengths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 28px}
+.strengths li{display:grid;gap:8px;align-content:start}
+.strength-num{font:600 12px/1 var(--fm);color:var(--wine)}
+.strengths strong{font:700 17px/1.3 var(--fd);letter-spacing:-.01em}
+.strengths li>span:last-child{font-size:14.5px;color:var(--muted);line-height:1.55}
+@media (max-width:1100px){.strengths{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){
+  .about-grid{grid-template-columns:1fr}
+  .about-side{position:static;grid-template-columns:130px 1fr;align-items:center;gap:20px}
+  .about-years{width:58px;height:58px;font-size:20px;right:6px;bottom:6px}
+  .about-years small{margin-top:-10px;font-size:7px}
+  .strengths{grid-template-columns:1fr;gap:26px}
+}

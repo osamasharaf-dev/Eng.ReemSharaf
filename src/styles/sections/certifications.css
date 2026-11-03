@@ -1,0 +1,25 @@
+/* ─── 07 certifications — dark gallery rail; every frame shares one format ─── */
+.sec--certifications{background:radial-gradient(70% 60% at 0% 0%,#7B1E3A4d,transparent 65%),var(--night)}
+.cert-top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.cert-nav{display:flex;gap:10px;margin-bottom:clamp(40px,7vh,80px);color:var(--on-dark)}
+.cert-nav .round:hover{background:var(--rose);color:var(--wine-3);border-color:var(--rose)}
+.cert-rail{display:flex;gap:clamp(18px,2.4vw,32px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gx);padding:8px max(var(--gx),calc((100vw - var(--max)) / 2 + var(--gx))) 28px;scrollbar-width:thin;scrollbar-color:#E9C3CD55 transparent;overscroll-behavior-x:contain;perspective:1400px}
+.cert-rail:focus-visible{outline-offset:-4px}
+.cert{flex:none;width:clamp(260px,30vw,380px);scroll-snap-align:start;display:grid;gap:18px;align-content:start;transition:transform .9s var(--ease),opacity .7s;transition-delay:calc(var(--k,0) * 90ms)}
+/* identical frame for every document: same ratio, same paper mat, image fitted inside */
+.cert-frame{position:relative;display:grid;place-items:center;width:100%;aspect-ratio:4/3;padding:14px;border:0;border-radius:20px;background:var(--paper);overflow:hidden;box-shadow:0 30px 60px -30px #000}
+.cert-frame img{position:absolute;inset:14px;width:calc(100% - 28px);height:calc(100% - 28px);object-fit:contain;transition:transform .7s var(--ease)}
+button.cert-frame:hover img{transform:scale(1.04)}
+.cert-zoom{position:absolute;right:12px;bottom:12px;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--wine);color:var(--on-dark);font-size:18px;opacity:0;transform:scale(.7);transition:opacity .3s,transform .4s var(--ease)}
+button.cert-frame:hover .cert-zoom,button.cert-frame:focus-visible .cert-zoom{opacity:1;transform:none}
+.cert-frame--text{background:linear-gradient(150deg,var(--wine),var(--wine-3));color:var(--rose);gap:10px;align-content:center}
+.cert-frame--text .i{font-size:54px;stroke-width:1.3}
+.cert-frame--text span{font:900 34px/1 var(--fd);color:var(--on-dark)}
+.cert-meta{font:600 11.5px/1.5 var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-2);margin-bottom:8px}
+.cert-meta b{color:var(--rose);font-weight:600}
+.cert-title{font:700 clamp(16px,1.4vw,19px)/1.3 var(--fd);letter-spacing:-.01em;margin-bottom:12px}
+.cert .link-out{color:var(--rose)}
+/* entrance — frames swing in on a 3D axis, one after another */
+.anim .cert-rail[data-r]{opacity:1}
+.anim .cert-rail:not(.in) .cert{opacity:0;transform:rotateY(-38deg) translateX(80px)}
+@media (max-width:760px){.cert-nav{display:none}.cert{width:78vw}}

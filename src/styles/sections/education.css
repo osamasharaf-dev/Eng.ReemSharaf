@@ -1,0 +1,31 @@
+/* ─── 06 education — blush; giant outlined degree letters ─── */
+.sec--education{background:var(--blush)}
+.edu-ruler{position:relative;height:56px;margin:0 20px clamp(40px,7vh,72px)}
+.edu-ruler::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:repeating-linear-gradient(90deg,#7B1E3A40 0 6px,transparent 6px 12px)}
+.edu-ruler span{position:absolute;left:var(--x);top:0;transform:translateX(-50%);display:grid;justify-items:center;gap:12px;font:600 12px/1 var(--fm);letter-spacing:.1em;color:var(--muted)}
+.edu-ruler span::before{content:"";width:20px;height:20px;border-radius:50%;background:var(--blush);border:3px solid var(--wine)}
+.edu-ruler .now{color:var(--wine)}
+.edu-ruler .now::before{background:var(--wine);box-shadow:0 0 0 6px #7B1E3A26}
+.edu-ruler .seg{position:absolute;left:var(--a);width:calc(var(--b) - var(--a));top:8px;height:4px;border-radius:4px;background:var(--wine);transform-origin:0 50%;transition:transform 1.4s .2s var(--ease)}
+.edu-ruler .seg--live{background:linear-gradient(90deg,var(--wine),var(--wine-2))}
+.anim .edu-ruler:not(.in) .seg{transform:scaleX(0)}
+.anim .edu-ruler[data-r]:not(.in){opacity:1}
+.edu-list{display:grid;gap:clamp(36px,6vh,64px)}
+.edu{position:relative;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,4vw,60px);align-items:center}
+.edu:nth-child(even){grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+.edu:nth-child(even) .edu-big{order:2;text-align:right}
+.edu-big{font:900 clamp(96px,17vw,250px)/.8 var(--fd);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:2px var(--wine);opacity:.9}
+.edu--live .edu-big{color:var(--wine);-webkit-text-stroke:0}
+.edu-period{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;font:600 13px/1 var(--fm);letter-spacing:.12em;text-transform:uppercase;color:var(--wine);margin-bottom:16px}
+.edu-status{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:var(--paper);color:var(--ink);letter-spacing:.06em}
+.edu-status .i{color:var(--wine)}
+.edu-degree{font:900 clamp(22px,2.6vw,38px)/1.1 var(--fd);letter-spacing:-.02em;margin-bottom:10px;text-wrap:balance}
+.edu-spec{font-weight:800;font-size:18px;margin-bottom:12px}
+.edu-school{display:flex;align-items:center;gap:10px;color:var(--muted);font-weight:600}
+.edu-school .i{color:var(--wine);font-size:20px}
+@media (max-width:760px){
+  .edu,.edu:nth-child(even){grid-template-columns:1fr;gap:4px}
+  .edu:nth-child(even) .edu-big{order:0;text-align:left}
+  .edu-big{font-size:clamp(84px,28vw,130px)}
+  .edu-ruler{margin-inline:14px}
+}

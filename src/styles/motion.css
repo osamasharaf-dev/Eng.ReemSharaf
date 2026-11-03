@@ -1,0 +1,19 @@
+/* ─── motion system ───
+   Hidden states live under .anim, which app.js adds only when motion is allowed —
+   without JS (or with reduced motion) everything is simply visible.
+   Only transform / opacity / clip-path animate, so it all stays on the compositor. */
+
+/* element reveals: [data-r] gets .in when it scrolls into view */
+.anim [data-r]{transition:opacity .9s var(--ease),transform 1.05s var(--ease),clip-path 1.1s var(--ease);transition-delay:calc(var(--d,0) * 1ms + var(--sd,0ms))}
+.anim [data-r]:not(.in){opacity:0}
+.anim [data-r=rise]:not(.in){transform:translateY(42px)}
+.anim [data-r=left]:not(.in){transform:translateX(-56px)}
+.anim [data-r=right]:not(.in){transform:translateX(56px)}
+.anim [data-r=scale]:not(.in){transform:scale(.86)}
+.anim [data-r=pop]:not(.in){transform:scale(0)}
+.anim .sec-title[data-r]:not(.in){clip-path:inset(0 0 100% 0);transform:translateY(.4em)}
+.anim .sec-title[data-r]{clip-path:inset(-10% -5% -20% -5%)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}

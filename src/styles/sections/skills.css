@@ -1,0 +1,21 @@
+/* ─── 05 skills — no cards, no lines: icons + labels floating on a dotted field ─── */
+.sec--skills{background:var(--bg)}
+.sec--skills::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(#7B1E3A2e 1.2px,transparent 1.3px);background-size:26px 26px;-webkit-mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent)}
+.skill-areas{columns:2 460px;column-gap:clamp(40px,6vw,96px)}
+.skill-area{break-inside:avoid;padding-bottom:clamp(44px,7vh,72px)}
+.skill-head{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;margin-bottom:22px}
+.skill-badge{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:var(--wine);color:var(--paper);font-size:24px;box-shadow:0 14px 28px -16px #7B1E3A}
+.skill-head h3{display:grid;gap:4px;font:900 clamp(18px,1.7vw,24px)/1.15 var(--fd);letter-spacing:-.015em}
+.skill-head h3 small{font:600 11px/1 var(--fm);letter-spacing:.18em;color:var(--wine)}
+.skill-count{font:900 clamp(30px,3vw,44px)/1 var(--fd);color:transparent;-webkit-text-stroke:1.5px #7B1E3A59}
+.skill-list{display:flex;flex-wrap:wrap;gap:10px 8px}
+.skill{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 8px;border-radius:999px;font-weight:700;font-size:14.5px;line-height:1.25;transition:background .3s,color .3s,transform .5s var(--ease),opacity .5s}
+.skill>.i,.skill>.mono{display:grid;place-items:center;width:34px;height:34px;padding:7px;border-radius:50%;background:#7B1E3A14;color:var(--wine);transition:background .3s,color .3s,transform .5s var(--ease)}
+.skill>.mono{padding:0;font-size:11px;background:var(--wine);color:var(--paper)}
+.skill:hover{background:var(--paper)}
+.skill:hover>.i{background:var(--wine);color:var(--paper);transform:rotate(-12deg) scale(1.08)}
+/* entrance — assemble from scattered positions */
+.anim .skill-list[data-r]{opacity:1;transform:none}
+.anim .skill-list .skill{transition:transform .9s var(--ease),opacity .6s,background .3s;transition-delay:calc(var(--j) * 35ms)}
+.anim .skill-list:not(.in) .skill{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--rot)) scale(.6)}
+@media (max-width:560px){.skill{font-size:13.5px}.skill-badge{width:44px;height:44px;font-size:20px;border-radius:13px}}

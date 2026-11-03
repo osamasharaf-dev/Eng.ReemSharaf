@@ -1,0 +1,57 @@
+/* ─── 04 projects — wine; pinned horizontal travel on large screens ─── */
+.sec--projects{padding:0;background:radial-gradient(80% 60% at 100% 0%,var(--wine-2),transparent 60%),var(--wine)}
+.proj-stage{display:flex;flex-direction:column;justify-content:center;gap:clamp(24px,4vh,48px);padding-block:clamp(110px,15vh,170px) clamp(90px,13vh,150px)}
+.proj-top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.proj-top .sec-head{margin-bottom:0}
+.proj-meter{display:none;align-items:center;gap:16px;font:600 12px/1 var(--fm);letter-spacing:.14em;color:var(--on-dark-2);padding-bottom:12px}
+.proj-count b{color:var(--on-dark);font-weight:600}
+.proj-bar{width:120px;height:2px;background:#ffffff2e;overflow:hidden}
+.proj-bar i{display:block;height:100%;background:var(--rose);transform-origin:0 50%;transform:scaleX(var(--pp,.5))}
+.proj-track{display:grid;gap:clamp(64px,10vh,110px)}
+.proj{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,80px);align-items:center;width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gx)}
+.proj-kind{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font:600 12px/1.5 var(--fm);letter-spacing:.14em;text-transform:uppercase;color:var(--rose);margin-bottom:18px}
+.proj-kind span{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1.5px solid currentColor;letter-spacing:0}
+.proj-title{font:900 clamp(24px,2.9vw,44px)/1.08 var(--fd);letter-spacing:-.02em;margin-bottom:20px;text-wrap:balance}
+.proj-body{font-size:clamp(15px,1.15vw,17px);line-height:1.7;color:#F4ECEEd9;margin-bottom:24px;max-width:62ch}
+.proj-tags{display:flex;flex-wrap:wrap;gap:8px}
+.proj-tags span{padding:6px 12px;border-radius:999px;background:#ffffff17;font-size:13px;font-weight:700}
+
+.diagram{position:relative;padding:clamp(20px,2.4vw,32px);border-radius:28px;background:#1A070E40;border:1px solid #ffffff1f}
+.diagram .mini{display:block;margin-bottom:20px}
+.diagram--pipe ol{position:relative;display:grid;gap:16px}
+.diagram--pipe ol::before{content:"";position:absolute;left:19px;top:20px;bottom:20px;width:2px;background:#ffffff26}
+.diagram--pipe ol::after{content:"";position:absolute;left:16px;top:20px;width:8px;height:8px;border-radius:50%;background:var(--rose);box-shadow:0 0 14px var(--rose);animation:packet 4.5s var(--ease-io) infinite}
+@keyframes packet{0%{top:20px;opacity:0}8%{opacity:1}92%{opacity:1}100%{top:calc(100% - 28px);opacity:0}}
+.diagram--pipe li{position:relative;display:grid;grid-template-columns:40px 1fr;gap:2px 16px;align-items:center}
+.pipe-node{grid-row:span 2;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--wine-3);border:1.5px solid var(--rose);font:600 12px/1 var(--fm);color:var(--rose);z-index:1}
+.pipe-k{font:900 16px/1.1 var(--fd)}
+.pipe-v{font-size:13.5px;color:var(--on-dark-2);line-height:1.45}
+.diagram--arch{display:grid;gap:14px;justify-items:center;text-align:center}
+.arch-client,.arch-gw{position:relative;padding:12px 22px;border-radius:14px;font-weight:800}
+.arch-client{background:var(--paper);color:var(--wine-3)}
+.arch-gw{width:100%;background:var(--rose);color:var(--wine-3);font-family:var(--fd);font-size:15px}
+.arch-gw small{display:block;font:600 11px/1.4 var(--fm);letter-spacing:.06em;opacity:.75;margin-top:4px}
+.arch-client::after,.arch-gw::after{content:"";position:absolute;left:50%;bottom:-14px;width:2px;height:14px;background:#ffffff4d}
+.arch-services{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;width:100%}
+.arch-services span{display:grid;gap:2px;padding:14px 6px;border-radius:14px;border:1.5px solid #ffffff38;font-weight:800;font-size:14px}
+.arch-services small{font:400 10px/1 var(--fm);letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-2)}
+.arch-bus{position:relative;width:100%;padding:12px;border-radius:999px;background:#1A070E66;font:600 11px/1.3 var(--fm);letter-spacing:.06em;overflow:hidden}
+.arch-bus i{position:absolute;top:50%;left:-10px;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:var(--rose);animation:bus 3.6s linear infinite}
+.arch-bus i:nth-child(3){animation-delay:1.2s}.arch-bus i:nth-child(4){animation-delay:2.4s}
+@keyframes bus{to{transform:translateX(min(560px,80vw))}}
+
+/* pinned mode (JS adds .is-pinned on wide, tall screens) */
+.sec--projects.is-pinned .proj-stage{position:sticky;top:0;height:100svh;overflow:hidden;gap:clamp(16px,3vh,32px);padding-block:calc(var(--top) + 10px) 84px}
+.sec--projects.is-pinned .proj-track{display:flex;gap:0;width:max-content;will-change:transform}
+.sec--projects.is-pinned .proj{width:100vw;max-width:none;padding-inline:max(var(--gx),calc((100vw - var(--max)) / 2 + var(--gx)))}
+.sec--projects.is-pinned .proj-meter{display:flex}
+.sec--projects.is-pinned .sec-title{font-size:clamp(30px,4vw,60px)}
+.sec--projects.is-pinned .kicker{margin-bottom:12px}
+.sec--projects.is-pinned .proj-title{font-size:clamp(22px,2.3vw,36px);margin-bottom:14px}
+.sec--projects.is-pinned .proj-body{font-size:15px;margin-bottom:16px}
+.sec--projects.is-pinned .diagram{padding:20px}
+.sec--projects.is-pinned .diagram--pipe ol{gap:10px}
+@media (max-width:900px){
+  .proj{grid-template-columns:1fr}
+  .arch-services{grid-template-columns:repeat(2,minmax(0,1fr))}
+}

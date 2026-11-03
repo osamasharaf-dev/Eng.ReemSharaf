@@ -1,0 +1,29 @@
+/* ─── 03 experience — vertical timeline; the line fills with scroll (--p) ─── */
+.sec--experience{background:var(--bg)}
+.tl{position:relative;display:grid;gap:clamp(56px,9vh,110px);--col:clamp(170px,22vw,300px);--gap:clamp(16px,3vw,40px)}
+.tl-track{position:absolute;left:calc(var(--col) + var(--gap) + 21px);top:10px;bottom:10px;width:2px;background:var(--mid)}
+.tl-fill{position:absolute;inset:0;background:linear-gradient(var(--wine),var(--wine-2));transform-origin:top;transform:scaleY(var(--p,1))}
+.tl-item{display:grid;grid-template-columns:var(--col) 44px minmax(0,1fr);gap:0 var(--gap);align-items:start}
+.tl-when{display:grid;gap:8px;text-align:right;padding-top:2px}
+.tl-years{font:900 clamp(30px,3.6vw,54px)/1 var(--fd);letter-spacing:-.03em;color:var(--wine)}
+.tl-years i{font-style:normal;font-weight:400;opacity:.5;margin:0 .15em;font-size:.6em;vertical-align:.25em}
+.tl-period{font:600 12px/1.4 var(--fm);letter-spacing:.12em;text-transform:uppercase}
+.tl-place{font-size:14px;color:var(--muted)}
+.tl-node{justify-self:center;width:18px;height:18px;margin-top:12px;border-radius:50%;background:var(--bg);border:3px solid var(--wine);box-shadow:0 0 0 8px var(--bg);position:relative;z-index:1}
+.tl-node::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--wine)}
+.tl-role{font:900 clamp(24px,2.8vw,40px)/1.05 var(--fd);letter-spacing:-.02em;margin-bottom:6px}
+.tl-org{font-weight:800;color:var(--wine);margin-bottom:24px;font-size:17px}
+.tl-points{display:grid;gap:14px;max-width:70ch}
+.tl-points li{display:grid;grid-template-columns:34px 1fr;gap:6px;font-size:16px;line-height:1.65}
+.tl-points li span{font:600 12px/1.9 var(--fm);color:var(--wine)}
+.tl-courses{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:26px}
+.tl-courses .mini{width:100%;margin-bottom:2px}
+.tl-courses .tag{background:var(--paper)}
+@media (max-width:760px){
+  .tl-track{left:8px}
+  .tl-item{grid-template-columns:18px minmax(0,1fr);gap:14px 18px}
+  .tl-node{grid-column:1;grid-row:1;margin-top:8px}
+  .tl-when{grid-column:2;grid-row:1;text-align:left}
+  .tl-body{grid-column:2}
+  .tl-points li{grid-template-columns:28px 1fr;font-size:15px}
+}

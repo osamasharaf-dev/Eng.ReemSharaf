@@ -1,0 +1,16 @@
+/* ─── 02 competencies — dark index, no dividers; ghost word drifts with scroll ─── */
+.comp-ghost{position:absolute;left:0;top:40%;z-index:-1;white-space:nowrap;font:900 clamp(90px,17vw,260px)/1 var(--fd);letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1.5px #E9C3CD1f;transform:translate3d(var(--x,0),0,0);pointer-events:none}
+.sec--competencies::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(60% 50% at 85% 10%,#7B1E3A55,transparent 70%),radial-gradient(50% 40% at 0% 100%,#7B1E3A33,transparent 70%)}
+.comp-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,64px)}
+.comp-group{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:26px;font:600 12px/1 var(--fm);letter-spacing:.2em;text-transform:uppercase;color:var(--rose)}
+.comp-group small{font-size:12px;opacity:.6}
+.comp-col ul{display:grid;gap:8px}
+.comp{display:grid;grid-template-columns:28px 44px 1fr;align-items:center;gap:6px;padding:12px 0;transition:transform .45s var(--ease)}
+.comp-num{font:600 11px/1 var(--fm);color:var(--on-dark-2);opacity:.6}
+.comp-ico{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#E9C3CD14;color:var(--rose);font-size:18px;transition:background .3s,color .3s,transform .45s var(--ease)}
+.comp-ico .mono{background:var(--rose);color:var(--wine-3);font-size:11px}
+.comp-name{font:700 clamp(17px,1.6vw,22px)/1.25 var(--fd);letter-spacing:-.01em;transition:color .3s}
+.comp:hover{transform:translateX(8px)}
+.comp:hover .comp-ico{background:var(--rose);color:var(--wine-3);transform:rotate(-10deg)}
+.comp:hover .comp-name{color:var(--rose)}
+@media (max-width:900px){.comp-cols{grid-template-columns:1fr;gap:36px}}

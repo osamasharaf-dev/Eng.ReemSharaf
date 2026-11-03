@@ -1,0 +1,15 @@
+{
+  "name": "reem-sharaf-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio of Reem Sharaf (ريم شرف) — Software Engineer, AI Researcher & University Lecturer. Static, SEO-first site with in-place cinematic section transitions.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs && npx --yes serve dist -l 3000",
+    "preview": "npx --yes serve dist -l 3000"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
