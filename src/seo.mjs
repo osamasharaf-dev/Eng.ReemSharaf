@@ -120,7 +120,7 @@ ${SITE.bingSiteVerification ? `<meta name="msvalidate.01" content="${esc(SITE.bi
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <link rel="preload" href="/assets/fonts/unbounded-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
-${p.key === 'home' ? `<link rel="preload" as="image" href="/assets/img/reem-sharaf-software-engineer-ai-researcher.webp" imagesrcset="/assets/img/reem-sharaf-portrait-760.webp 608w, /assets/img/reem-sharaf-software-engineer-ai-researcher.webp 960w" imagesizes="(max-width: 900px) 70vw, 34vw" fetchpriority="high">` : ''}
+${p.key === 'home' ? `<link rel="preload" as="image" href="/assets/img/reem-sharaf-ai-researcher-lecturer.webp" imagesrcset="/assets/img/reem-sharaf-ai-researcher-lecturer-608.webp 608w, /assets/img/reem-sharaf-ai-researcher-lecturer.webp 960w" imagesizes="(max-width: 900px) 70vw, 34vw" fetchpriority="high">` : ''}
 <link rel="stylesheet" href="/assets/css/site.css?v=${build}">
 <script>document.documentElement.classList.replace('no-js','js')</script>
 <script type="application/ld+json">${pageLD(p)}</script>

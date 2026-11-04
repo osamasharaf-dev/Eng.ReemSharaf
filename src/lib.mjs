@@ -20,7 +20,7 @@ export const words = (text) => {
 export const chars = (text, offset = 0) => [...text].map((c, i) => `<span class="ch" style="--i:${i + offset}">${esc(c)}</span>`).join('');
 
 export const portrait = ({ cls = '', sizes = '(max-width: 900px) 70vw, 34vw', eager = false } = {}) =>
-  `<img class="${cls}" src="/assets/img/reem-sharaf-software-engineer-ai-researcher.webp" srcset="/assets/img/reem-sharaf-portrait-760.webp 608w, /assets/img/reem-sharaf-software-engineer-ai-researcher.webp 960w" sizes="${sizes}" width="960" height="1200" alt="Reem Sharaf (ريم شرف), Software Engineer, AI Researcher and University Lecturer" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
+  `<img class="${cls}" src="/assets/img/reem-sharaf-ai-researcher-lecturer.webp" srcset="/assets/img/reem-sharaf-ai-researcher-lecturer-608.webp 608w, /assets/img/reem-sharaf-ai-researcher-lecturer.webp 960w" sizes="${sizes}" width="960" height="1200" alt="Reem Sharaf (ريم شرف), Software Engineer, AI Researcher and University Lecturer" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
 
 // Section heading used by every section except the hero.
 // `h` is 'h1' on the section's own page and 'h2' inside the one-page home.
